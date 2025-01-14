@@ -70,7 +70,7 @@ function onCardClick(e) {
     
             }
             selectedCards = [];
-        }, 1000);
+        }, 700);
 
     }
 }
