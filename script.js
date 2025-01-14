@@ -47,21 +47,31 @@ function onCardClick(e) {
 
     selectedCards.push(card);
     if(selectedCards.length == 2){
-        if(selectedCards[0].dataset.value == selectedCards[1].dataset.value){
-            //it's correct, we find a pair
-            selectedCards[0].classList.add("matched");
-            selectedCards[1].classList.add("matched");
-            selectedCards[0].removeEventListener('click', onCardClick);
-            selectedCards[1].removeEventListener('click', onCardClick);
 
-        }
-        else{
-            //it's not correct
-            selectedCards[0].classList.remove("flip");
-            selectedCards[1].classList.remove("flip");
+        setTimeout(() => {
+            if(selectedCards[0].dataset.value == selectedCards[1].dataset.value){
+                //it's correct, we find a pair
+                selectedCards[0].classList.add("matched");
+                selectedCards[1].classList.add("matched");
+                selectedCards[0].removeEventListener('click', onCardClick);
+                selectedCards[1].removeEventListener('click', onCardClick);
+    
 
-        }
-        selectedCards = [];
+                const allCardsNotMatched = document.querySelectorAll('.card:not(.matched)');
+                console.log(allCardsNotMatched.length);
+                if(allCardsNotMatched.length == 0) {
+                    alert("Bravo ! Vous avez Gagné !");
+                }
+            }
+            else{
+                //it's not correct
+                selectedCards[0].classList.remove("flip");
+                selectedCards[1].classList.remove("flip");
+    
+            }
+            selectedCards = [];
+        }, 1000);
+
     }
 }
 
