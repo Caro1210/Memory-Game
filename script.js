@@ -12,6 +12,7 @@ const cards = [
   ];
 
 const gameBoard = document.getElementById('game-board');
+let selectedCards = [];
 
 function createCard(cardUrl){
     const card = document.createElement('div');
@@ -40,9 +41,28 @@ function shuffleArray(arrayToShuffle){
     return arrayShuffled;
 }
 
-function onCardClick (e) {
+function onCardClick(e) {
     const card = e.target.parentElement;
     card.classList.add('flip');
+
+    selectedCards.push(card);
+    if(selectedCards.length == 2){
+        if(selectedCards[0].dataset.value == selectedCards[1].dataset.value){
+            //it's correct, we find a pair
+            selectedCards[0].classList.add("matched");
+            selectedCards[1].classList.add("matched");
+            selectedCards[0].removeEventListener('click', onCardClick);
+            selectedCards[1].removeEventListener('click', onCardClick);
+
+        }
+        else{
+            //it's not correct
+            selectedCards[0].classList.remove("flip");
+            selectedCards[1].classList.remove("flip");
+
+        }
+        selectedCards = [];
+    }
 }
 
 let allCards = duplicateArray(cards);

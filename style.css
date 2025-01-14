@@ -26,4 +26,12 @@ margin: 30px, auto;
 /* flip */
 .card.flip .card-content {
     opacity: 1;
+    max-width: 100%;
+}
+
+/* if there is a pair */
+.card.matched {
+    border: solid 4px green;
+    box-sizing: border-box;
+    cursor: default;
 }
