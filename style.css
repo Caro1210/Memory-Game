@@ -47,3 +47,10 @@ margin: 30px, auto;
     transform: rotateY(0deg);
     transition: all 0.5s;
 }
+
+.btn-restart {
+    margin-top: 15px;
+    font-family: Arial, sans-serif, bold;
+    font-size: large;
+    cursor: pointer;
+}
