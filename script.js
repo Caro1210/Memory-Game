@@ -35,8 +35,14 @@ function duplicateArray(arraySimple) {
     return arrayDouble;
 }
 
-const allCards = duplicateArray(cards);
+function shuffleArray(arrayToShuffle){
+    const arrayShuffled = arrayToShuffle.sort(() => 0.5 - Math.random());
+    return arrayShuffled;
+}
 
+let allCards = duplicateArray(cards);
+// shuffle array
+allCards = shuffleArray(allCards);
 allCards.forEach(card => {
     const cardHtml = createCard(card);
     gameBoard.appendChild(cardHtml);
