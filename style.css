@@ -21,4 +21,9 @@ margin: 30px, auto;
 
 .card .card-content {
     opacity: 0;
-  }
+}
+
+/* flip */
+.card.flip .card-content {
+    opacity: 1;
+}

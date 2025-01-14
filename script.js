@@ -21,9 +21,9 @@ function createCard(cardUrl){
     const cardContent = document.createElement('img');
     cardContent.classList.add('card-content');
     cardContent.src = cardUrl;
-
     card.appendChild(cardContent);
 
+    card.addEventListener('click', onCardClick);
     return card;
 }
 
@@ -38,6 +38,11 @@ function duplicateArray(arraySimple) {
 function shuffleArray(arrayToShuffle){
     const arrayShuffled = arrayToShuffle.sort(() => 0.5 - Math.random());
     return arrayShuffled;
+}
+
+function onCardClick (e) {
+    const card = e.target.parentElement;
+    card.classList.add('flip');
 }
 
 let allCards = duplicateArray(cards);
