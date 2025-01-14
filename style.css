@@ -35,3 +35,15 @@ margin: 30px, auto;
     box-sizing: border-box;
     cursor: default;
 }
+
+.card.flip{
+    transform: rotateY(180deg);
+}
+.card .card-content {
+    transition: all 0.3s;
+}
+.card {
+    /*animation*/
+    transform: rotateY(0deg);
+    transition: all 0.5s;
+}
